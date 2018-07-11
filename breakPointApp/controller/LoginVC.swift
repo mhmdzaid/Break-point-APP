@@ -10,18 +10,43 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var EmailField: insetTextFieldVC!
+    @IBOutlet weak var PasswordField: insetTextFieldVC!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func SignInBtnWasPressed(_ sender: Any) {
+        if EmailField.text != nil && PasswordField.text != nil {
+            AuthService.instance.loginUser(withEmail: EmailField.text!, andPassword: PasswordField.text!, userLoginCompletion: { (success, loginError) in
+                if success{
+                    self.dismiss(animated: true, completion: nil)
+                }else{
+                    print(String(describing:loginError?.localizedDescription))
+                }
+                
+                
+                AuthService.instance.createUser(withEmail: self.EmailField.text!, andPassword: self.PasswordField.text!, userCreationComplete: { (success, RegisterationError) in
+                    if success{
+                        AuthService.instance.loginUser(withEmail: self.EmailField.text!, andPassword: self.PasswordField.text!, userLoginCompletion: { (success, LoginError) in
+                           self.dismiss(animated: true, completion: nil)
+                           print("successfully registeredd")
+                        })
+                    }else{
+                        print(String(describing:RegisterationError?.localizedDescription))
+                    }
+                })
+            })
+        }
     }
     
-
+    @IBAction func closeBtnWasPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 
 }
+extension LoginVC : UITextFieldDelegate{}
