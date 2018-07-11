@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3UX-6H-upW">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--View Controller-->
+        <!--AuthVC-->
         <scene sceneID="d6k-F3-WHb">
             <objects>
-                <viewController id="3UX-6H-upW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" id="3UX-6H-upW" customClass="AuthVC" customModule="breakPointApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ujd-Zp-uuo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,44 +115,46 @@
                                     <constraint firstAttribute="height" constant="62" id="6uo-c8-uZr"/>
                                     <constraint firstAttribute="width" constant="198" id="9at-BV-6GB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="32"/>
                                 <color key="textColor" red="0.1783170439" green="1" blue="0.2442695792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Via-Kb-1zn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Via-Kb-1zn" customClass="ShadowView" customModule="breakPointApp" customModuleProvider="target">
                                 <rect key="frame" x="24" y="122.5" width="272" height="323"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="atp-Iw-E2x">
-                                        <rect key="frame" x="20" y="20" width="232" height="216"/>
+                                        <rect key="frame" x="20" y="20" width="232" height="205"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMF-g8-xRx">
-                                                <rect key="frame" x="0.0" y="0.0" width="232" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="232" height="34"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.2705891405411765" green="0.74373563617058824" blue="0.73962162990196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vO-IQ-A3R">
-                                                <rect key="frame" x="0.0" y="47" width="232" height="48.5"/>
+                                                <rect key="frame" x="0.0" y="44" width="232" height="48.5"/>
                                                 <color key="backgroundColor" red="0.2627450980392157" green="0.35686274509803922" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="AMZ-Nm-LCb"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Login with FB">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZL-IQ-5fy">
-                                                <rect key="frame" x="0.0" y="105.5" width="232" height="49"/>
+                                                <rect key="frame" x="0.0" y="102.5" width="232" height="49"/>
                                                 <color key="backgroundColor" red="0.80784313725490198" green="0.32941176470588235" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="5Fu-h9-h7z"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Login with G+">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPw-w5-vdL">
-                                                <rect key="frame" x="0.0" y="164.5" width="232" height="51.5"/>
+                                                <rect key="frame" x="0.0" y="161.5" width="232" height="43.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.27058914049999999" green="0.74373563620000005" blue="0.73962162990000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -170,7 +172,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUN-Vc-jLb">
-                                <rect key="frame" x="44" y="351" width="232" height="49"/>
+                                <rect key="frame" x="44" y="340" width="232" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="H6g-Vj-Q6F"/>
                                     <constraint firstAttribute="width" constant="232" id="XBZ-gs-z4a"/>
@@ -200,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="-1506" y="-151"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="YDs-lf-zmq">
             <objects>
-                <viewController id="Na0-nj-TZK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="Na0-nj-TZK" customClass="LoginVC" customModule="breakPointApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wN1-0G-EI9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,34 +216,34 @@
                                     <constraint firstAttribute="width" constant="140" id="FtI-Df-DuP"/>
                                     <constraint firstAttribute="height" constant="34" id="OEg-Lz-SnW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
-                                <color key="textColor" red="0.1783170439" green="1" blue="0.2442695792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="21"/>
+                                <color key="textColor" red="0.27058914049999999" green="0.74373563620000005" blue="0.73962162990000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XHU-nX-MjC">
                                 <rect key="frame" x="35" y="104" width="250" height="120"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-za-T8E">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-za-T8E" customClass="insetTextFieldVC" customModule="breakPointApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
                                         <color key="backgroundColor" red="0.46707145230000002" green="0.46707145230000002" blue="0.46707145230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="9Dm-5Z-CgK"/>
                                             <constraint firstAttribute="height" constant="50" id="nws-N3-lD4"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1783170439" green="1" blue="0.2442695792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UGD-0m-wOm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UGD-0m-wOm" customClass="insetTextFieldVC" customModule="breakPointApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70" width="250" height="50"/>
                                         <color key="backgroundColor" red="0.46707145230000002" green="0.46707145230000002" blue="0.46707145230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="hhs-25-Dbk"/>
                                             <constraint firstAttribute="height" constant="50" id="iI6-QF-h4X"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1783170439" green="1" blue="0.2442695792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
