@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		163069C320F522DD00DD97AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C220F522DD00DD97AA /* AppDelegate.swift */; };
-		163069C520F522DD00DD97AA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C420F522DD00DD97AA /* FirstViewController.swift */; };
-		163069C720F522DD00DD97AA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C620F522DD00DD97AA /* SecondViewController.swift */; };
+		163069C520F522DD00DD97AA /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C420F522DD00DD97AA /* FeedVC.swift */; };
+		163069C720F522DD00DD97AA /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C620F522DD00DD97AA /* GroupsVC.swift */; };
 		163069CA20F522DE00DD97AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163069C820F522DE00DD97AA /* Main.storyboard */; };
 		163069CC20F522DE00DD97AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163069CB20F522DE00DD97AA /* Assets.xcassets */; };
 		163069CF20F522DE00DD97AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163069CD20F522DE00DD97AA /* LaunchScreen.storyboard */; };
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		163069BF20F522DD00DD97AA /* breakPointApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breakPointApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163069C220F522DD00DD97AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		163069C420F522DD00DD97AA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		163069C620F522DD00DD97AA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		163069C420F522DD00DD97AA /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		163069C620F522DD00DD97AA /* GroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsVC.swift; sourceTree = "<group>"; };
 		163069C920F522DE00DD97AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		163069CB20F522DE00DD97AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		163069CE20F522DE00DD97AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		163069D620F5230500DD97AA /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				163069C420F522DD00DD97AA /* FirstViewController.swift */,
-				163069C620F522DD00DD97AA /* SecondViewController.swift */,
+				163069C420F522DD00DD97AA /* FeedVC.swift */,
+				163069C620F522DD00DD97AA /* GroupsVC.swift */,
 				163069DF20F5763700DD97AA /* AuthVC.swift */,
 				163069E120F5767600DD97AA /* LoginVC.swift */,
 			);
@@ -289,13 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				163069E020F5763700DD97AA /* AuthVC.swift in Sources */,
-				163069C720F522DD00DD97AA /* SecondViewController.swift in Sources */,
+				163069C720F522DD00DD97AA /* GroupsVC.swift in Sources */,
 				163069E220F5767600DD97AA /* LoginVC.swift in Sources */,
 				163069E820F64E1200DD97AA /* AuthService.swift in Sources */,
 				163069E420F5771700DD97AA /* insetTextFieldVC.swift in Sources */,
 				163069E620F58A2300DD97AA /* ShadowView.swift in Sources */,
 				163069C320F522DD00DD97AA /* AppDelegate.swift in Sources */,
-				163069C520F522DD00DD97AA /* FirstViewController.swift in Sources */,
+				163069C520F522DD00DD97AA /* FeedVC.swift in Sources */,
 				163069DE20F55F1F00DD97AA /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
