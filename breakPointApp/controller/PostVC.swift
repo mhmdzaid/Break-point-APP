@@ -20,6 +20,10 @@ class PostVC: UIViewController {
         PostButton.bindToKeyBoard()
     }
    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.EmailLabel.text = Auth.auth().currentUser?.email
+    }
     @IBAction func PostBtnWasPressed(_ sender: Any) {
         if textView.text != nil && textView.text != "Say somthing ..."{
             PostButton.isEnabled = false

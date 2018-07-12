@@ -7,12 +7,17 @@
 //
 
 import UIKit
-
+import Firebase
 class AuthVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     @IBAction func facBookSignInBtnWasPressed(_ sender: Any) {
