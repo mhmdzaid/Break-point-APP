@@ -161,7 +161,7 @@
                                             <constraint firstAttribute="height" constant="30" id="Do5-6E-N3t"/>
                                             <constraint firstAttribute="width" constant="30" id="T5m-I8-IST"/>
                                         </constraints>
-                                        <state key="normal" image="compose"/>
+                                        <state key="normal" image="addNewIcon"/>
                                         <connections>
                                             <segue destination="ULH-tf-Mko" kind="presentation" id="voa-cu-gZo"/>
                                         </connections>
@@ -313,7 +313,7 @@
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add people to your group " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hln-Ag-c8C">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add people to your group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hln-Ag-c8C">
                                         <rect key="frame" x="0.0" y="123" width="280" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -331,7 +331,7 @@
                                     </textField>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gr0-Oe-cgi">
                                         <rect key="frame" x="0.0" y="203.5" width="280" height="254.5"/>
-                                        <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="60" id="yTT-Jz-qG5" customClass="userCell" customModule="breakPointApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="280" height="60"/>
@@ -372,7 +372,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="gbB-AG-WsG" secondAttribute="trailing" constant="10" id="kcr-ac-Qjn"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="EmailLabel" destination="FqD-Nh-eCq" id="wBi-Pn-XH5"/>
                                                     <outlet property="checkImage" destination="gbB-AG-WsG" id="2WS-vj-KGZ"/>
@@ -400,6 +400,7 @@
                         <outlet property="DescribtionTextField" destination="S7P-mh-J25" id="td6-wg-dUP"/>
                         <outlet property="addedMemberTextField" destination="82P-l1-d2l" id="0hj-T4-OeX"/>
                         <outlet property="addedMembersLabel" destination="hln-Ag-c8C" id="L0j-ac-Cwc"/>
+                        <outlet property="doneButton" destination="inJ-Tl-XOC" id="5dZ-zb-GGq"/>
                         <outlet property="tableVIew" destination="Gr0-Oe-cgi" id="eU1-88-vxQ"/>
                         <outlet property="titleTextField" destination="coG-11-LzW" id="4yP-hg-UxK"/>
                     </connections>
@@ -873,6 +874,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addNewIcon" width="19" height="19"/>
         <image name="close" width="21" height="20"/>
         <image name="compose" width="21" height="24"/>
         <image name="defaultProfileImage" width="102" height="102"/>
