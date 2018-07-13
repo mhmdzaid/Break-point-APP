@@ -9,7 +9,7 @@
 import UIKit
 
 class CreatGroupsVC: UIViewController {
-
+    var EmailArray : [String] = [String]()
     @IBOutlet weak var titleTextField: insetTextFieldVC!
     @IBOutlet weak var DescribtionTextField: insetTextFieldVC!
     @IBOutlet weak var addedMemberTextField: insetTextFieldVC!
@@ -19,10 +19,22 @@ class CreatGroupsVC: UIViewController {
         super.viewDidLoad()
         tableVIew.delegate = self
         tableVIew.dataSource = self
-        
+        addedMemberTextField.delegate = self
+        addedMemberTextField.addTarget(self, action: #selector(textfieldDidChange), for: .editingChanged)
     }
 
-   
+    @objc func textfieldDidChange (){
+     let query = self.addedMemberTextField.text
+        DataService.instance.getEmail(forQuery: query!) { (emails) in
+            if self.addedMemberTextField.text == ""{
+                self.EmailArray = []
+                self.tableVIew.reloadData()
+            }else{
+                self.EmailArray = emails
+                self.tableVIew.reloadData()
+            }
+        }
+    }
     @IBAction func DoneButtonWasPressed(_ sender: Any) {
     }
     @IBAction func closeButtonWasPressed(_ sender: Any) {
@@ -38,7 +50,7 @@ extension CreatGroupsVC : UITableViewDelegate ,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return EmailArray.count
     }
     
     
@@ -47,7 +59,8 @@ extension CreatGroupsVC : UITableViewDelegate ,UITableViewDataSource{
             return UITableViewCell()
         }
         let image = UIImage(named:"defaultProfileImage")
-        cell.configureCell(UsrImage: image! , Email: "may@yahoo.com", isSelected: true)
+        cell.configureCell(UsrImage: image! , Email: EmailArray[indexPath.row], isSelected: true)
         return cell
     }
 }
+extension CreatGroupsVC : UITextFieldDelegate{}
