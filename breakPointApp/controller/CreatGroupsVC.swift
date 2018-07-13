@@ -14,10 +14,11 @@ class CreatGroupsVC: UIViewController {
     @IBOutlet weak var DescribtionTextField: insetTextFieldVC!
     @IBOutlet weak var addedMemberTextField: insetTextFieldVC!
     @IBOutlet weak var addedMembersLabel: UILabel!
-    
+    @IBOutlet weak var tableVIew: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableVIew.delegate = self
+        tableVIew.dataSource = self
         
     }
 
@@ -28,4 +29,25 @@ class CreatGroupsVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension CreatGroupsVC : UITableViewDelegate ,UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell  = tableVIew.dequeueReusableCell(withIdentifier: "userCell") as? userCell else{
+            return UITableViewCell()
+        }
+        let image = UIImage(named:"defaultProfileImage")
+        cell.configureCell(UsrImage: image! , Email: "may@yahoo.com", isSelected: true)
+        return cell
+    }
 }

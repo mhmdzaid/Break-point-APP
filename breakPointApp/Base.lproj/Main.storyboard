@@ -329,17 +329,55 @@
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gr0-Oe-cgi">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gr0-Oe-cgi">
                                         <rect key="frame" x="0.0" y="203.5" width="280" height="254.5"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yTT-Jz-qG5">
-                                                <rect key="frame" x="0.0" y="28" width="280" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="60" id="yTT-Jz-qG5" customClass="userCell" customModule="breakPointApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="280" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yTT-Jz-qG5" id="hLw-PG-nOS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="02W-f3-tAk">
+                                                            <rect key="frame" x="15" y="8" width="44" height="44"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="44" id="88m-KX-9uu"/>
+                                                                <constraint firstAttribute="height" constant="44" id="tut-L3-Sg0"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@breakPoint.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="FqD-Nh-eCq">
+                                                            <rect key="frame" x="69" y="10" width="173" height="40"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="gbB-AG-WsG">
+                                                            <rect key="frame" x="252" y="16.5" width="18" height="27"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="27" id="29d-iS-qLh"/>
+                                                                <constraint firstAttribute="width" constant="18" id="vrt-dO-qOR"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="FqD-Nh-eCq" secondAttribute="bottom" constant="10" id="4lx-xq-JCk"/>
+                                                        <constraint firstItem="02W-f3-tAk" firstAttribute="centerY" secondItem="hLw-PG-nOS" secondAttribute="centerY" id="79n-H6-vfz"/>
+                                                        <constraint firstItem="gbB-AG-WsG" firstAttribute="centerY" secondItem="hLw-PG-nOS" secondAttribute="centerY" id="7li-OE-w8D"/>
+                                                        <constraint firstItem="FqD-Nh-eCq" firstAttribute="leading" secondItem="02W-f3-tAk" secondAttribute="trailing" constant="10" id="Dsy-fE-DoE"/>
+                                                        <constraint firstItem="FqD-Nh-eCq" firstAttribute="top" secondItem="hLw-PG-nOS" secondAttribute="top" constant="10" id="Grw-ON-fyR"/>
+                                                        <constraint firstItem="gbB-AG-WsG" firstAttribute="leading" secondItem="FqD-Nh-eCq" secondAttribute="trailing" constant="10" id="Yuw-sD-LMM"/>
+                                                        <constraint firstItem="02W-f3-tAk" firstAttribute="leading" secondItem="hLw-PG-nOS" secondAttribute="leading" constant="15" id="bps-NJ-iB3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gbB-AG-WsG" secondAttribute="trailing" constant="10" id="kcr-ac-Qjn"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <outlet property="EmailLabel" destination="FqD-Nh-eCq" id="wBi-Pn-XH5"/>
+                                                    <outlet property="checkImage" destination="gbB-AG-WsG" id="2WS-vj-KGZ"/>
+                                                    <outlet property="userImage" destination="02W-f3-tAk" id="lCP-v3-CyB"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -362,6 +400,7 @@
                         <outlet property="DescribtionTextField" destination="S7P-mh-J25" id="td6-wg-dUP"/>
                         <outlet property="addedMemberTextField" destination="82P-l1-d2l" id="0hj-T4-OeX"/>
                         <outlet property="addedMembersLabel" destination="hln-Ag-c8C" id="L0j-ac-Cwc"/>
+                        <outlet property="tableVIew" destination="Gr0-Oe-cgi" id="eU1-88-vxQ"/>
                         <outlet property="titleTextField" destination="coG-11-LzW" id="4yP-hg-UxK"/>
                     </connections>
                 </viewController>
@@ -844,6 +883,7 @@
         <image name="logoutIcon" width="19" height="21"/>
         <image name="me-tabIcon" width="25" height="25"/>
         <image name="send" width="29" height="29"/>
+        <image name="whiteCheckmark" width="18" height="14"/>
     </resources>
     <color key="tintColor" red="0.015686274509803921" green="0.6705882352941176" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
