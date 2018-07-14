@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		160F335420FA4531003717E7 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F335320FA4531003717E7 /* GroupModel.swift */; };
+		161CFF4E20FA7F5800CA80A7 /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161CFF4D20FA7F5800CA80A7 /* GroupFeedVC.swift */; };
+		161CFF5020FA7FAB00CA80A7 /* groupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161CFF4F20FA7FAB00CA80A7 /* groupFeedCell.swift */; };
 		163069C320F522DD00DD97AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C220F522DD00DD97AA /* AppDelegate.swift */; };
 		163069C520F522DD00DD97AA /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C420F522DD00DD97AA /* FeedVC.swift */; };
 		163069C720F522DD00DD97AA /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069C620F522DD00DD97AA /* GroupsVC.swift */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		160F335320FA4531003717E7 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
+		161CFF4D20FA7F5800CA80A7 /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
+		161CFF4F20FA7FAB00CA80A7 /* groupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupFeedCell.swift; sourceTree = "<group>"; };
 		163069BF20F522DD00DD97AA /* breakPointApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breakPointApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163069C220F522DD00DD97AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		163069C420F522DD00DD97AA /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				163069E920F6CD8700DD97AA /* MeVC.swift */,
 				163B270B20F6E29C00BCAD34 /* PostVC.swift */,
 				163B271320F8170700BCAD34 /* CreatGroupsVC.swift */,
+				161CFF4D20FA7F5800CA80A7 /* GroupFeedVC.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				163B270F20F7CC2400BCAD34 /* FeedCell.swift */,
 				163B271520F860C800BCAD34 /* userCell.swift */,
 				16F9E2EE20F98987001AD5DD /* GroupCell.swift */,
+				161CFF4F20FA7FAB00CA80A7 /* groupFeedCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -323,12 +329,14 @@
 				163069C720F522DD00DD97AA /* GroupsVC.swift in Sources */,
 				163069E220F5767600DD97AA /* LoginVC.swift in Sources */,
 				163069E820F64E1200DD97AA /* AuthService.swift in Sources */,
+				161CFF4E20FA7F5800CA80A7 /* GroupFeedVC.swift in Sources */,
 				163069E420F5771700DD97AA /* insetTextFieldVC.swift in Sources */,
 				163B271620F860C800BCAD34 /* userCell.swift in Sources */,
 				163069E620F58A2300DD97AA /* ShadowView.swift in Sources */,
 				160F335420FA4531003717E7 /* GroupModel.swift in Sources */,
 				163B271220F7CE2E00BCAD34 /* MessageModel.swift in Sources */,
 				163069C320F522DD00DD97AA /* AppDelegate.swift in Sources */,
+				161CFF5020FA7FAB00CA80A7 /* groupFeedCell.swift in Sources */,
 				163069C520F522DD00DD97AA /* FeedVC.swift in Sources */,
 				163B271420F8170700BCAD34 /* CreatGroupsVC.swift in Sources */,
 				163069DE20F55F1F00DD97AA /* DataService.swift in Sources */,
