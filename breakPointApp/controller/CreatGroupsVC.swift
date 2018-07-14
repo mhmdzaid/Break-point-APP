@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class CreatGroupsVC: UIViewController {
     var EmailArray : [String] = [String]()
     var chosenEmailArray : [String ] = [String]()
@@ -45,6 +45,21 @@ class CreatGroupsVC: UIViewController {
         }
     }
     @IBAction func DoneButtonWasPressed(_ sender: Any) {
+        if titleTextField.text != "" && DescribtionTextField.text != ""{
+          
+            DataService.instance.getIds(forUsers: chosenEmailArray) { (userIDs) in
+            var IDs = userIDs
+            IDs.append((Auth.auth().currentUser?.uid)!)
+                DataService.instance.createGroup(withTitle: self.titleTextField.text!, andDescription: self.DescribtionTextField.text!, usersIDs:IDs , handler: { (groupCreated) in
+                    if groupCreated{
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        print("there was an error creating the group")
+                    }
+                })
+            }
+       
+        }
     }
     @IBAction func closeButtonWasPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
