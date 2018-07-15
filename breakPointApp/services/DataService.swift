@@ -109,6 +109,20 @@ class DataService{
     }
     
     
+    func getEmailsfor(group :Group , handler : @escaping (_ Emails:[String])->()){
+        var EmailsToPass = [String]()
+        REF_USERS.observeSingleEvent(of: .value) { (UsersSnapShot) in
+            guard let UsersSnapShot = UsersSnapShot.children.allObjects as? [DataSnapshot] else{return}
+            for user in UsersSnapShot{
+                if group.members.contains(user.key){
+                   let email =  user.childSnapshot(forPath: "email").value as! String
+                    EmailsToPass.append(email)
+                }
+            }
+            handler(EmailsToPass)
+        }
+    }
+    
     func createGroup(withTitle title :String ,andDescription description :String,usersIDs IDS :[String],
                      handler :@escaping (_ groupCreated : Bool)->()){
         REF_GROUPS.childByAutoId().updateChildValues(["title":title,
@@ -127,7 +141,6 @@ class DataService{
                if members.contains((Auth.auth().currentUser?.uid)!){
                     let groupTitle = group.childSnapshot(forPath: "title").value as! String
                     let desc = group.childSnapshot(forPath:"description").value as! String
-                    let numOfMembers = members.count
                     let GROUP = Group(title: groupTitle, description: desc, key: group.key, members: members, memberCount: members.count)
                 groupArray.append(GROUP)
                 }
@@ -135,6 +148,8 @@ class DataService{
             handler(groupArray)
          }
         }
+    
+    
         
     }
     
