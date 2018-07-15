@@ -17,7 +17,7 @@ class GroupFeedVC: UIViewController {
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var messagetextField: insetTextFieldVC!
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismissDetail()
     }
     @IBAction func sendButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
