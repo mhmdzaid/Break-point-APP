@@ -364,50 +364,64 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@breakPoint.com,johnDoe@breakPoint.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="JKg-L5-oMs">
                                 <rect key="frame" x="5" y="75" width="310" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="d8K-UO-eJN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="send a message ... " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cbt-IG-Nr0" customClass="insetTextFieldVC" customModule="breakPointApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="508" width="240" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iji-Fb-cPI">
+                                <rect key="frame" x="0.0" y="498" width="320" height="70"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="send a message ... " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cbt-IG-Nr0" customClass="insetTextFieldVC" customModule="breakPointApp" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="10" width="233" height="50"/>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="yJ9-Nx-PPe"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9b-6n-KQe">
+                                        <rect key="frame" x="256" y="10" width="48" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="CiZ-m8-FoX"/>
+                                            <constraint firstAttribute="width" constant="48" id="ZZM-Tm-qNj"/>
+                                        </constraints>
+                                        <state key="normal" image="send"/>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="Pql-XT-IqR" eventType="touchUpInside" id="X2I-Cn-82b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="vyh-lO-OPl"/>
+                                    <constraint firstItem="b9b-6n-KQe" firstAttribute="leading" secondItem="Cbt-IG-Nr0" secondAttribute="trailing" constant="8" id="3Mx-Ph-2o0"/>
+                                    <constraint firstAttribute="trailing" secondItem="b9b-6n-KQe" secondAttribute="trailing" constant="16" id="3Rw-dt-hxA"/>
+                                    <constraint firstAttribute="height" constant="70" id="9Ib-y5-ZA2"/>
+                                    <constraint firstItem="b9b-6n-KQe" firstAttribute="centerY" secondItem="Cbt-IG-Nr0" secondAttribute="centerY" id="Hwx-4a-NdL"/>
+                                    <constraint firstItem="Cbt-IG-Nr0" firstAttribute="leading" secondItem="Iji-Fb-cPI" secondAttribute="leading" constant="15" id="Mlh-nD-vPy"/>
+                                    <constraint firstItem="b9b-6n-KQe" firstAttribute="centerY" secondItem="Iji-Fb-cPI" secondAttribute="centerY" id="aJe-dA-fYh"/>
                                 </constraints>
-                                <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9b-6n-KQe">
-                                <rect key="frame" x="266" y="518" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Mlm-Uw-0FB"/>
-                                    <constraint firstAttribute="height" constant="30" id="OuK-St-zGY"/>
-                                </constraints>
-                                <state key="normal" image="send"/>
-                                <connections>
-                                    <action selector="sendButtonPressed:" destination="Pql-XT-IqR" eventType="touchUpInside" id="X2I-Cn-82b"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="b9b-6n-KQe" firstAttribute="leading" secondItem="Cbt-IG-Nr0" secondAttribute="trailing" constant="10" id="0gB-eI-djj"/>
-                            <constraint firstItem="9HZ-mw-Yro" firstAttribute="bottom" secondItem="tQL-NR-pfK" secondAttribute="bottom" constant="70" id="1hM-0I-jVl"/>
-                            <constraint firstItem="9HZ-mw-Yro" firstAttribute="trailing" secondItem="b9b-6n-KQe" secondAttribute="trailing" constant="24" id="2DD-tM-Xb7"/>
                             <constraint firstItem="JKg-L5-oMs" firstAttribute="leading" secondItem="9HZ-mw-Yro" secondAttribute="leading" constant="5" id="2Rk-0X-CNl"/>
-                            <constraint firstItem="9HZ-mw-Yro" firstAttribute="bottom" secondItem="Cbt-IG-Nr0" secondAttribute="bottom" constant="10" id="5tK-Ou-8tl"/>
+                            <constraint firstItem="Iji-Fb-cPI" firstAttribute="top" secondItem="tQL-NR-pfK" secondAttribute="bottom" id="2YQ-yg-aYd"/>
+                            <constraint firstItem="Iji-Fb-cPI" firstAttribute="trailing" secondItem="9HZ-mw-Yro" secondAttribute="trailing" id="2ZQ-ts-HtC"/>
                             <constraint firstItem="tQL-NR-pfK" firstAttribute="trailing" secondItem="9HZ-mw-Yro" secondAttribute="trailing" id="6u0-FC-4v4"/>
                             <constraint firstItem="JKg-L5-oMs" firstAttribute="top" secondItem="jgx-uZ-NXX" secondAttribute="bottom" constant="5" id="8aW-T1-PjC"/>
                             <constraint firstItem="jgx-uZ-NXX" firstAttribute="top" secondItem="QKY-xc-d5p" secondAttribute="top" id="9GZ-M9-dYf"/>
-                            <constraint firstItem="Cbt-IG-Nr0" firstAttribute="top" secondItem="tQL-NR-pfK" secondAttribute="bottom" constant="10" id="Dda-Ja-4bt"/>
                             <constraint firstItem="tQL-NR-pfK" firstAttribute="leading" secondItem="9HZ-mw-Yro" secondAttribute="leading" id="LIG-Ru-Ebq"/>
                             <constraint firstItem="jgx-uZ-NXX" firstAttribute="leading" secondItem="9HZ-mw-Yro" secondAttribute="leading" id="Wza-wP-CWV"/>
-                            <constraint firstItem="b9b-6n-KQe" firstAttribute="top" secondItem="tQL-NR-pfK" secondAttribute="bottom" constant="20" id="aDe-32-epD"/>
+                            <constraint firstItem="Iji-Fb-cPI" firstAttribute="bottom" secondItem="9HZ-mw-Yro" secondAttribute="bottom" id="bUc-3P-S4y"/>
+                            <constraint firstItem="Iji-Fb-cPI" firstAttribute="leading" secondItem="9HZ-mw-Yro" secondAttribute="leading" id="cbi-lS-sXt"/>
                             <constraint firstItem="jgx-uZ-NXX" firstAttribute="trailing" secondItem="9HZ-mw-Yro" secondAttribute="trailing" id="ci7-eU-d4W"/>
-                            <constraint firstItem="Cbt-IG-Nr0" firstAttribute="leading" secondItem="9HZ-mw-Yro" secondAttribute="leading" constant="16" id="dYQ-oe-24l"/>
+                            <constraint firstItem="Iji-Fb-cPI" firstAttribute="top" secondItem="tQL-NR-pfK" secondAttribute="bottom" id="q6O-vf-IKN"/>
                             <constraint firstItem="9HZ-mw-Yro" firstAttribute="trailing" secondItem="JKg-L5-oMs" secondAttribute="trailing" constant="5" id="sVg-PS-wzv"/>
-                            <constraint firstItem="b9b-6n-KQe" firstAttribute="centerY" secondItem="Cbt-IG-Nr0" secondAttribute="centerY" id="vRi-Xi-rhh"/>
                             <constraint firstItem="tQL-NR-pfK" firstAttribute="top" secondItem="JKg-L5-oMs" secondAttribute="bottom" constant="5" id="vnN-zO-GIH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9HZ-mw-Yro"/>
@@ -486,13 +500,13 @@
                                 <rect key="frame" x="20" y="90" width="280" height="458"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-oO-q5l">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="coG-11-LzW" customClass="insetTextFieldVC" customModule="breakPointApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="23" width="280" height="27"/>
+                                        <rect key="frame" x="0.0" y="5" width="280" height="27"/>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="mME-WW-0c7"/>
@@ -502,13 +516,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describtion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKf-IM-df1">
-                                        <rect key="frame" x="0.0" y="55" width="280" height="18"/>
+                                        <rect key="frame" x="0.0" y="37" width="280" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Describtion" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7P-mh-J25" customClass="insetTextFieldVC" customModule="breakPointApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="78" width="280" height="40"/>
+                                        <rect key="frame" x="0.0" y="42" width="280" height="40"/>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LTM-yV-Nyl"/>
@@ -518,13 +532,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add people to your group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hln-Ag-c8C">
-                                        <rect key="frame" x="0.0" y="123" width="280" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="87" width="280" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.3020168245" green="0.74969166519999997" blue="0.33211535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="add people here " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82P-l1-d2l" customClass="insetTextFieldVC" customModule="breakPointApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="148.5" width="280" height="50"/>
+                                        <rect key="frame" x="0.0" y="92" width="280" height="50"/>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IQv-Yw-Cp5"/>
@@ -534,7 +548,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gr0-Oe-cgi">
-                                        <rect key="frame" x="0.0" y="203.5" width="280" height="254.5"/>
+                                        <rect key="frame" x="0.0" y="147" width="280" height="311"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="60" id="yTT-Jz-qG5" customClass="userCell" customModule="breakPointApp" customModuleProvider="target">

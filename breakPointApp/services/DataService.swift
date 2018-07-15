@@ -44,6 +44,8 @@ class DataService{
         
         if GroupKey != nil{
             //send to Group Ref.
+            REF_GROUPS.child(GroupKey!).child("messages").childByAutoId().updateChildValues(["content":message , "userID":UID])
+            completion(true)
         }else{
             REF_FEEDS.childByAutoId().updateChildValues(["content":message,"userID":UID])
             completion(true)
@@ -63,6 +65,20 @@ class DataService{
                 messageArray.append(msg)
             }
             handler(messageArray)
+        }
+    }
+    
+    func getAllMessages(forDesiredGroup group: Group , handler : @escaping (_ groupMessages : [Message])->()){
+        var messages : [Message] = [Message]()
+        REF_GROUPS.child(group.key).child("messages").observeSingleEvent(of: .value) { (groupMessagesSnapShot) in
+            guard let groupMessagesSnapShot = groupMessagesSnapShot.children.allObjects as? [DataSnapshot]else{return}
+            for message in groupMessagesSnapShot{
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let SenderId = message.childSnapshot(forPath: "userID").value as! String
+                let msg = Message(content: content, senderId: SenderId)
+                messages.append(msg)
+            }
+            handler(messages)
         }
     }
     

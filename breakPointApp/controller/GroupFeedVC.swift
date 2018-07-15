@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import Firebase
 class GroupFeedVC: UIViewController {
     var group :Group?
+    var messages  = [Message]()
     @IBOutlet weak var groupMembersLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var FeedtableView: UITableView!
@@ -19,7 +20,21 @@ class GroupFeedVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func sendButtonPressed(_ sender: Any) {
-        
+        self.view.endEditing(true)
+        if messagetextField.text != ""{
+            self.sendButton.isEnabled = false
+            messagetextField.isEnabled = false
+            DataService.instance.UploadPost(withMessage: messagetextField.text!, forUID:(Auth.auth().currentUser?.uid)! , WithGroupKey: (self.group?.key)!, UploadCompleted: { (complete) in
+                if complete {
+                    self.sendButton.isEnabled = true
+                    self.messagetextField.isEnabled = true
+                    self.messagetextField.text = ""
+                }else{
+                    print("there is something wrong")
+                }
+            })
+        }
+      
     }
     
     func initGroupData(forGroup group :Group){
@@ -27,9 +42,11 @@ class GroupFeedVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        FeedtableView.dataSource = self
+        FeedtableView.delegate = self
         sendButton.bindToKeyBoard()
         messagetextField.bindToKeyBoard()
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hidekeyBoard)))
+        self.FeedtableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hidekeyBoard)))
     }
     
     @objc func hidekeyBoard(){
@@ -42,6 +59,32 @@ class GroupFeedVC: UIViewController {
             self.groupMembersLabel.text = returnedEmails.joined(separator: ", ")
         }
         
+        DataService.instance.REF_GROUPS.observe(.value) { (snapShot) in
+            DataService.instance.getAllMessages(forDesiredGroup: self.group!, handler: { (returnGroupMessages) in
+                self.messages = returnGroupMessages.reversed()
+                self.FeedtableView.reloadData()
+            })
+        }
+        
     }
 
+}
+
+extension GroupFeedVC : UITableViewDelegate ,UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.FeedtableView.dequeueReusableCell(withIdentifier: "groupFeedCell") as? groupFeedCell else{return UITableViewCell()}
+        let message = messages[indexPath.row]
+        DataService.instance.getUsername(forUID: message.SenderId) { (userName) in
+            let image = UIImage(named: "defaultProfileImage")
+            cell.configureCell(message: message.content , email: userName, image: image!)
+        }
+      return cell 
+    }
 }
