@@ -8,12 +8,15 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 let D_B = Database.database().reference()
+let storage = Storage.storage().reference()
 class DataService{
     
     static let instance = DataService()
-
+    
+    private var _REF_IMAGES = storage.child("images")
     private var _REF_BASE = D_B
     private var _REF_USERS  = D_B.child("users")
     private var _REF_FEEDS = D_B.child("feeds")
@@ -33,6 +36,10 @@ class DataService{
     
     var REF_GROUPS:DatabaseReference{
         return _REF_GROUPS
+    }
+    
+    var REF_IMAGES : StorageReference{
+        return _REF_IMAGES
     }
 
     func creatDBUser(UID : String , UserData : Dictionary<String,Any>) -> Void
@@ -166,6 +173,33 @@ class DataService{
         }
     
     
+    
+    func uploadImage(forUID UID :String,imageURL :URL,completion : @escaping(_ status : Bool)->()){
+        
+        REF_IMAGES.child(UID).putFile(from: imageURL, metadata: nil) { (_, error) in
+            if error != nil{
+                print(error!.localizedDescription)
+                completion(false)
+            }else{
+                print("successfully uploaded")
+                completion(true)
+            }
+            
+        }
+    }
+    
+    func getProfileImage(forUID UID :String , completion : @escaping(_ url : URL?,_ exists :Bool)->()){
+        
+        REF_IMAGES.child(UID).downloadURL { (returnedURL, error) in
+            if error == nil{
+                completion(returnedURL!,true)
+            }else{
+                print(error!.localizedDescription)
+                completion(nil,false)
+            }
+        }
+        
+    }
         
     }
     

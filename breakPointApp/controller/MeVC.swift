@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 class MeVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -15,13 +16,33 @@ class MeVC: UIViewController {
     @IBOutlet weak var EmailLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         
     }
-
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.EmailLbl.text  = Auth.auth().currentUser?.email
+        //check if current user has an image on the firebase
+        DispatchQueue.global(qos: .userInteractive).sync {
+            DataService.instance.getProfileImage(forUID: (Auth.auth().currentUser?.uid)!) { (returnedURL,imageExists) in
+                if imageExists{
+                    do{
+                        let data = try Data(contentsOf: returnedURL!)
+                        let image = UIImage(data: data)
+                        self.ProfileImage.image = image
+                    }
+                    catch{}
+                }else{
+                    
+                    self.ProfileImage.image = UIImage(named: "defaultProfileImage")
+                }
+            }
+            
+        }
+
     }
     
     
@@ -69,6 +90,14 @@ class MeVC: UIViewController {
 extension MeVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let imageURL = info[UIImagePickerControllerImageURL] as! URL
+        DataService.instance.uploadImage(forUID: (Auth.auth().currentUser?.uid)!, imageURL: imageURL) { (completed) in
+            if completed{
+                print("uploaded successfully ")
+            }else{
+                print("something went wrong")
+            }
+        }
         self.ProfileImage.image = image
         picker.dismiss(animated: true, completion: nil)
     }
