@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 class PostVC: UIViewController {
-
+    
     @IBOutlet weak var PostButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var EmailLabel: UILabel!
@@ -22,6 +22,13 @@ class PostVC: UIViewController {
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        do{
+            let url = UserDefaults.standard.url(forKey: "url")
+            let data = try Data(contentsOf: url!)
+            let image = UIImage(data: data)
+            self.UserImage.image = image
+        }catch{}
+        
         self.EmailLabel.text = Auth.auth().currentUser?.email
     }
     @IBAction func PostBtnWasPressed(_ sender: Any) {

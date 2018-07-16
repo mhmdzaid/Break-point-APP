@@ -42,14 +42,27 @@ extension FeedVC : UITableViewDelegate , UITableViewDataSource{
         guard let cell  = tableView.dequeueReusableCell(withIdentifier: "feedCell") as? FeedCell else{
             return UITableViewCell()
         }
-       
         let message = messageArray[indexPath.row]
-        let image = UIImage(named: "defaultProfileImage")
-        DataService.instance.getUsername(forUID: message.SenderId) { (returnedEmail) in
-         cell.configureCell(profileImage: image!, email:returnedEmail , message: message.content)
+        DataService.instance.getProfileImage(forUID: message.SenderId) { (url, exist) in
+            if exist{
+              do{
+                  let data = try Data(contentsOf: url!)
+                  let image = UIImage(data: data)
+                
+                    DataService.instance.getUsername(forUID: message.SenderId) { (returnedEmail) in
+                    cell.configureCell(profileImage: image!, email:returnedEmail , message: message.content)
+                    }
+                }catch{}
+            }else{
+            let image = UIImage(named: "defaultProfileImage")
+            DataService.instance.getUsername(forUID: message.SenderId) { (returnedEmail) in
+                cell.configureCell(profileImage: image!, email:returnedEmail , message: message.content)
+            }
+            print("no photo on firbase for \(message.SenderId)")
         }
-        
-        return cell
+       
     }
+        return cell
 }
 
+}

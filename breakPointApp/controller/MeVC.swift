@@ -31,6 +31,7 @@ class MeVC: UIViewController {
                 if imageExists{
                     do{
                         let data = try Data(contentsOf: returnedURL!)
+                        UserDefaults.standard.set(returnedURL!, forKey: "url")
                         let image = UIImage(data: data)
                         self.ProfileImage.image = image
                     }
