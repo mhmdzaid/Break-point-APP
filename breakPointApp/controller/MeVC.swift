@@ -23,7 +23,33 @@ class MeVC: UIViewController {
         super.viewDidAppear(animated)
         self.EmailLbl.text  = Auth.auth().currentUser?.email
     }
-
+    
+    
+    @IBAction func uploadButtonPressed(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        let alert = UIAlertController(title: "Change photo", message: "choose your profile photo", preferredStyle: .actionSheet)
+       
+        alert.addAction(UIAlertAction(title: "take a photo  ", style: .default, handler: { (_) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            }else{
+                print("camera not available")
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "choose a photo ", style: .default, handler: { (_) in
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            imagePicker.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func SignOutBtnWasPressed(_ sender: Any) {
         let logoutPopUp = UIAlertController(title: "logout?", message: "Are you sure you want to logout !", preferredStyle: .actionSheet)
         let logoutAction = UIAlertAction(title: "logout?", style: .destructive) { (buttonTapped) in
@@ -37,5 +63,16 @@ class MeVC: UIViewController {
         }
         logoutPopUp.addAction(logoutAction)
         present(logoutPopUp, animated: true, completion: nil)
+    }
+}
+
+extension MeVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.ProfileImage.image = image
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
