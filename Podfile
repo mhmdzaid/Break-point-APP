@@ -9,5 +9,6 @@ target 'breakPointApp' do
   pod 'Firebase/Core'
   pod ‘Firebase/Database’
   pod ‘Firebase/Auth’
-  pod 'Firebase/Storage'	
+  pod 'Firebase/Storage'
+  pod 'FBSDKLoginKit'	
 end

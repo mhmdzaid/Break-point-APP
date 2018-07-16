@@ -16,7 +16,6 @@
 		163069CA20F522DE00DD97AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163069C820F522DE00DD97AA /* Main.storyboard */; };
 		163069CC20F522DE00DD97AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163069CB20F522DE00DD97AA /* Assets.xcassets */; };
 		163069CF20F522DE00DD97AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163069CD20F522DE00DD97AA /* LaunchScreen.storyboard */; };
-		163069DC20F52B8F00DD97AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 163069DB20F52B8F00DD97AA /* GoogleService-Info.plist */; };
 		163069DE20F55F1F00DD97AA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069DD20F55F1F00DD97AA /* DataService.swift */; };
 		163069E020F5763700DD97AA /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069DF20F5763700DD97AA /* AuthVC.swift */; };
 		163069E220F5767600DD97AA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163069E120F5767600DD97AA /* LoginVC.swift */; };
@@ -31,6 +30,7 @@
 		163B271420F8170700BCAD34 /* CreatGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163B271320F8170700BCAD34 /* CreatGroupsVC.swift */; };
 		163B271620F860C800BCAD34 /* userCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163B271520F860C800BCAD34 /* userCell.swift */; };
 		163CD99720FC024A00AF8859 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CD99620FC024A00AF8859 /* UIViewControllerExt.swift */; };
+		16C01F6B20FCBEF000A9FDB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16C01F6A20FCBEF000A9FDB5 /* GoogleService-Info.plist */; };
 		16F9E2EF20F98987001AD5DD /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9E2EE20F98987001AD5DD /* GroupCell.swift */; };
 		7396F6C57CF5CF58AC551114 /* Pods_breakPointApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE90E400F77D90F45601742 /* Pods_breakPointApp.framework */; };
 /* End PBXBuildFile section */
@@ -47,7 +47,6 @@
 		163069CB20F522DE00DD97AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		163069CE20F522DE00DD97AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		163069D020F522DE00DD97AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		163069DB20F52B8F00DD97AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		163069DD20F55F1F00DD97AA /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		163069DF20F5763700DD97AA /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		163069E120F5767600DD97AA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -62,6 +61,8 @@
 		163B271320F8170700BCAD34 /* CreatGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatGroupsVC.swift; sourceTree = "<group>"; };
 		163B271520F860C800BCAD34 /* userCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userCell.swift; sourceTree = "<group>"; };
 		163CD99620FC024A00AF8859 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		16C01F6920FCB97A00A9FDB5 /* header-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "header-Bridging-Header.h"; sourceTree = "<group>"; };
+		16C01F6A20FCBEF000A9FDB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16F9E2EE20F98987001AD5DD /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		394A4A5AF897D9BE62BDC9BB /* Pods-breakPointApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakPointApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-breakPointApp/Pods-breakPointApp.release.xcconfig"; sourceTree = "<group>"; };
 		CFCF274CF41F615512F7DAE1 /* Pods-breakPointApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakPointApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakPointApp/Pods-breakPointApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,10 +108,11 @@
 				163069D720F5231800DD97AA /* view */,
 				163069D620F5230500DD97AA /* controller */,
 				163069C220F522DD00DD97AA /* AppDelegate.swift */,
+				16C01F6920FCB97A00A9FDB5 /* header-Bridging-Header.h */,
 				163069C820F522DE00DD97AA /* Main.storyboard */,
+				16C01F6A20FCBEF000A9FDB5 /* GoogleService-Info.plist */,
 				163069CB20F522DE00DD97AA /* Assets.xcassets */,
 				163069CD20F522DE00DD97AA /* LaunchScreen.storyboard */,
-				163069DB20F52B8F00DD97AA /* GoogleService-Info.plist */,
 				163069D020F522DE00DD97AA /* Info.plist */,
 			);
 			path = breakPointApp;
@@ -251,7 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				163069CF20F522DE00DD97AA /* LaunchScreen.storyboard in Resources */,
-				163069DC20F52B8F00DD97AA /* GoogleService-Info.plist in Resources */,
+				16C01F6B20FCBEF000A9FDB5 /* GoogleService-Info.plist in Resources */,
 				163069CC20F522DE00DD97AA /* Assets.xcassets in Resources */,
 				163069CA20F522DE00DD97AA /* Main.storyboard in Resources */,
 			);
@@ -282,6 +284,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-breakPointApp/Pods-breakPointApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -289,6 +294,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",

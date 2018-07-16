@@ -52,7 +52,7 @@ extension FeedVC : UITableViewDelegate , UITableViewDataSource{
                     DataService.instance.getUsername(forUID: message.SenderId) { (returnedEmail) in
                     cell.configureCell(profileImage: image!, email:returnedEmail , message: message.content)
                     }
-                }catch{}
+                }catch{} 
             }else{
             let image = UIImage(named: "defaultProfileImage")
             DataService.instance.getUsername(forUID: message.SenderId) { (returnedEmail) in

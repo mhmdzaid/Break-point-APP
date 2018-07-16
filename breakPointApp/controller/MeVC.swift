@@ -25,6 +25,9 @@ class MeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.EmailLbl.text  = Auth.auth().currentUser?.email
+        if Auth.auth().currentUser?.displayName != nil{
+            EmailLbl.text = Auth.auth().currentUser?.displayName
+        }
         //check if current user has an image on the firebase
         DispatchQueue.global(qos: .userInteractive).sync {
             DataService.instance.getProfileImage(forUID: (Auth.auth().currentUser?.uid)!) { (returnedURL,imageExists) in
