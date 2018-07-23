@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import  FBSDKLoginKit
 class MeVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -76,9 +77,13 @@ class MeVC: UIViewController {
     
     
     @IBAction func SignOutBtnWasPressed(_ sender: Any) {
+        
+        let manager = FBSDKLoginManager()
+        
         let logoutPopUp = UIAlertController(title: "logout?", message: "Are you sure you want to logout !", preferredStyle: .actionSheet)
         let logoutAction = UIAlertAction(title: "logout?", style: .destructive) { (buttonTapped) in
             do{
+              manager.logOut()
               try Auth.auth().signOut()
                let AuthVC = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC")
                self.present(AuthVC!, animated: true, completion: nil)
@@ -92,6 +97,7 @@ class MeVC: UIViewController {
 }
 
 extension MeVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate{
+   
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let imageURL = info[UIImagePickerControllerImageURL] as! URL
@@ -108,4 +114,9 @@ extension MeVC : UIImagePickerControllerDelegate , UINavigationControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    
 }
+
+
+
