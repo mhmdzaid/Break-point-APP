@@ -20,10 +20,14 @@ class FeedVC : UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DataService.instance.getAllFeedMessages { (returnedMessageArray) in
-            self.messageArray = returnedMessageArray.reversed()
-            self.tableView.reloadData()
+        DispatchQueue.global(qos: .userInteractive).sync {
+            DataService.instance.getAllFeedMessages { (returnedMessageArray) in
+                self.messageArray = returnedMessageArray.reversed()
+                
+            }
+
         }
+        self.tableView.reloadData()
     }
 
 }
