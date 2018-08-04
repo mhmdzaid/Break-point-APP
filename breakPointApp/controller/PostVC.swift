@@ -20,8 +20,8 @@ class PostVC: UIViewController {
         PostButton.bindToKeyBoard()
     }
    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         do{
             let url = UserDefaults.standard.url(forKey: "url")
             let data = try Data(contentsOf: url!)

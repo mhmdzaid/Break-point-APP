@@ -193,6 +193,7 @@ class DataService{
         REF_IMAGES.child(UID).downloadURL { (returnedURL, error) in
             if error == nil{
                 completion(returnedURL!,true)
+                
             }else{
                 print(error!.localizedDescription)
                 completion(nil,false)

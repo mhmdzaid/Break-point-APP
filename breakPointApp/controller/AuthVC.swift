@@ -58,6 +58,8 @@ extension AuthVC : FBSDKLoginButtonDelegate{
                 if error != nil {
                     print(error!.localizedDescription)
                 }else{
+                    
+                   
                     let tabBar = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
                     self.present(tabBar!, animated: true, completion: nil)
                     

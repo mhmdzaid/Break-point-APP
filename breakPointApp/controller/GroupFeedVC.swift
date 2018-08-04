@@ -10,7 +10,9 @@ import UIKit
 import Firebase
 class GroupFeedVC: UIViewController {
     var group :Group?
+    let myDispatchGroup = DispatchGroup()
     var messages  = [Message]()
+    var profileImages = [UIImage]()
     @IBOutlet weak var groupMembersLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var FeedtableView: UITableView!
@@ -40,6 +42,7 @@ class GroupFeedVC: UIViewController {
     func initGroupData(forGroup group :Group){
      self.group = group
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         FeedtableView.dataSource = self
@@ -47,10 +50,15 @@ class GroupFeedVC: UIViewController {
         sendButton.bindToKeyBoard()
         messagetextField.bindToKeyBoard()
         self.FeedtableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hidekeyBoard)))
+        
     }
     
     @objc func hidekeyBoard(){
       self.view.endEditing(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -62,6 +70,7 @@ class GroupFeedVC: UIViewController {
         DataService.instance.REF_GROUPS.observe(.value) { (snapShot) in
             DataService.instance.getAllMessages(forDesiredGroup: self.group!, handler: { (returnGroupMessages) in
                 self.messages = returnGroupMessages.reversed()
+                self.fetchAllImagData()
                 self.FeedtableView.reloadData()
             })
         }
@@ -81,10 +90,40 @@ extension GroupFeedVC : UITableViewDelegate ,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.FeedtableView.dequeueReusableCell(withIdentifier: "groupFeedCell") as? groupFeedCell else{return UITableViewCell()}
         let message = messages[indexPath.row]
+        if profileImages.count > 0 {
         DataService.instance.getUsername(forUID: message.SenderId) { (userName) in
-            let image = UIImage(named: "defaultProfileImage")
-            cell.configureCell(message: message.content , email: userName, image: image!)
+            cell.configureCell(message: message.content , email: userName, image: self.profileImages[indexPath.row])
         }
+    }
       return cell 
     }
+    
+    
+    
+    func fetchAllImagData(){
+        
+        for message in self.messages{
+            myDispatchGroup.enter()
+            DataService.instance.getProfileImage(forUID: message.SenderId, completion: { (url, exist) in
+                if exist{
+                    do{
+                        let data = try Data(contentsOf: url!)
+                        let image = UIImage(data: data)
+                        self.profileImages.append(image!)
+                    }catch{}
+                }else{
+                    let image = UIImage(named: "defaultProfileImage")
+                    self.profileImages.append(image!)
+                    print("no photo on firbase for \(message.SenderId)")
+                }
+                self.myDispatchGroup.leave()
+            })
+        }
+        self.myDispatchGroup.notify(queue: .main, execute: {
+            print("finished fetching users images \(self.profileImages.count)")
+            self.FeedtableView.reloadData()
+        })
+    }
+    
+    
 }
