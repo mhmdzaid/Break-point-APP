@@ -14,9 +14,13 @@ class FeedVC : UIViewController {
     var usersImages : [UIImage] = [UIImage]()
     var messageArray : [Message] = [Message]()
     let myGroup = DispatchGroup()
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        activityIndicator.center = view.center
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -24,7 +28,7 @@ class FeedVC : UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.activityIndicator.startAnimating()
             self.fetchAllData()
     }
     
@@ -82,6 +86,7 @@ extension FeedVC : UITableViewDelegate , UITableViewDataSource{
              }
             self.myGroup.notify(queue: .main, execute: {
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             })
           }
        }

@@ -13,6 +13,7 @@ class GroupFeedVC: UIViewController {
     let myDispatchGroup = DispatchGroup()
     var messages  = [Message]()
     var profileImages = [UIImage]()
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     @IBOutlet weak var groupMembersLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var FeedtableView: UITableView!
@@ -45,6 +46,10 @@ class GroupFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
         FeedtableView.dataSource = self
         FeedtableView.delegate = self
         sendButton.bindToKeyBoard()
@@ -122,6 +127,7 @@ extension GroupFeedVC : UITableViewDelegate ,UITableViewDataSource{
         self.myDispatchGroup.notify(queue: .main, execute: {
             print("finished fetching users images \(self.profileImages.count)")
             self.FeedtableView.reloadData()
+            self.activityIndicator.stopAnimating()
         })
     }
     
